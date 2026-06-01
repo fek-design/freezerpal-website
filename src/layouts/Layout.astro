@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Navbar from '../components/Navbar.tsx';
 import Hero from '../components/Hero.tsx';
-
+import Benefits from '../components/Benefits.tsx';
 
 interface Props {
   title: string;
@@ -19,10 +19,11 @@ const { title } = Astro.props;
   </head>
   <body class="selection:bg-brand-accent selection:text-brand-dark">
     
-    <Navbar />
+    <Navbar client:only="react" />
 
     <main>
-      <Hero client:load />
+      <Hero client:only="react" />
+      <Benefits client:only="react" />
       <slot />
     </main>
 

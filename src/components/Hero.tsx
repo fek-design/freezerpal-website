@@ -75,7 +75,7 @@ export default function Hero() {
          <img 
            src={heroImg.src}
            alt="Family in kitchen"
-           className="w-full h-full object-cover blur-sm opacity-100 mix-blend-overlay"
+           className="w-full h-full object-cover opacity-100 mix-blend-overlay"
          />
          <div className="absolute inset-0 bg-brand-dark/10" />
          <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-brand-light/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
