@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/Navbar.tsx';
 
 interface Props {
   title: string;
@@ -14,8 +15,10 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
   </head>
-  <body class="selection:bg-brand-accent selection:text-brand-dark bg-bg-base">
+  <body class="selection:bg-brand-accent selection:text-brand-dark">
     
+    <Navbar />
+
     <main>
       <slot />
     </main>
