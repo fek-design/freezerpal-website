@@ -3,10 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.tsx';
 import Benefits from '../components/Benefits.tsx';
 import Faq from '../components/Faq'
+import Cta from '../components/Cta'
 ---
 
 <Layout title="Home">
 	<Hero client:only="react" />
 	<Benefits client:only="react" />
 	<Faq client:only="react" />
+	<Cta client:only="react" />
 </Layout>
