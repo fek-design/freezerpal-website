@@ -1,7 +1,81 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { SidebarBG } from '../components/SidebarBG.tsx'; 
+import { HeaderBG } from '../components/HeaderBG.tsx'; 
+
 ---
 
-<Layout title="Home">
-	<h1>FreezerPal BrandGuide</h1>
+<Layout title="FreezerPal Brand Guide">
+  <div class="bg-brand-dark w-full border-b border-brand-dark/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <HeaderBG client:load />
+    </div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/5 pt-12 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      
+      <SidebarBG client:load activeSection="logo" />
+      
+      <div class="lg:col-span-9">
+        
+        <section id="ikoner" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
+            <h3 class="text-3xl font-display font-bold text-brand-dark">Logo</h3>
+        </section>
+        <section id="ikoner" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
+            <h3 class="text-3xl font-display font-bold text-brand-dark">Farver</h3>
+        </section>
+        <section id="ikoner" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
+            <h3 class="text-3xl font-display font-bold text-brand-dark">Fonte</h3>
+        </section>
+        <section id="ikoner" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
+            <h3 class="text-3xl font-display font-bold text-brand-dark">Ikoner</h3>
+        </section>
+        <section id="baggrund" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
+            <h3 class="text-3xl font-display font-bold text-brand-dark">Baggrund</h3>
+        </section>
+        <section id="billede-stil" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
+            <h3 class="text-3xl font-display font-bold text-brand-dark">Billede stil</h3>
+        </section>
+        <section id="knapper" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
+            <h3 class="text-3xl font-display font-bold text-brand-dark">Knapper</h3>
+        </section>
+
+        <div class="h-[300vh] w-full mt-12 border-t-4 border-dashed border-red-500/50 bg-slate-50 flex justify-center pt-10">
+          <p class="text-red-500 font-mono text-sm uppercase tracking-widest font-bold">
+            Scroll Testing Zone Active (300vh)
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Client-side scroll spy logic runs directly in the browser
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const activeLinkId = entry.target.id;
+          const links = document.querySelectorAll('nav.flex a');
+          
+          links.forEach(link => {
+            if (link.getAttribute('href') === `#${activeLinkId}`) {
+              link.classList.add('text-brand-light', 'font-bold');
+              link.classList.remove('text-brand-dark');
+            } else {
+              link.classList.remove('text-brand-light', 'font-bold');
+              link.classList.add('text-brand-dark');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px' });
+
+    // Target the Danish IDs
+    ['logo', 'farver', 'fonte', 'ikoner', 'baggrund', 'billede-stil', 'knapper'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  </script>
 </Layout>
