@@ -2,9 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import { SidebarBG } from '../components/SidebarBG.tsx'; 
 import { HeaderBG } from '../components/HeaderBG.tsx'; 
+import { BrandLogo } from '../components/Brand/BrandLogo';
+import { BrandColors } from '../components/Brand/BrandColors';
+import { BrandFonte } from '../components/Brand/BrandFonte';
+import { BrandIkoner } from '../components/Brand/BrandIkoner';
 import { BrandBackgrounds } from '../components/Brand/BrandBackgrounds';
+import { BrandBilledestil } from '../components/Brand/BrandBilledestil';
 import { BrandButtons } from '../components/Brand/BrandButtons';
-
 ---
 
 <Layout title="FreezerPal Brand Guide">
@@ -20,37 +24,18 @@ import { BrandButtons } from '../components/Brand/BrandButtons';
       <SidebarBG client:load activeSection="logo" />
       
       <div class="lg:col-span-9">
-        
-        <BrandBackgrounds />
-        <BrandButtons />
-        <section id="logo" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
-            <h3 class="text-3xl font-display font-bold text-brand-dark">Logo</h3>
-        </section>
-        <section id="farver" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
-            <h3 class="text-3xl font-display font-bold text-brand-dark">Farver</h3>
-        </section>
-        <section id="fonte" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
-            <h3 class="text-3xl font-display font-bold text-brand-dark">Fonte</h3>
-        </section>
-        <section id="ikoner" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
-            <h3 class="text-3xl font-display font-bold text-brand-dark">Ikoner</h3>
-        </section>
-        <section id="baggrund" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
-            <h3 class="text-3xl font-display font-bold text-brand-dark">Baggrund</h3>
-        </section>
-        <section id="billede-stil" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
-            <h3 class="text-3xl font-display font-bold text-brand-dark">Billede stil</h3>
-        </section>
-        <section id="knapper" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
-            <h3 class="text-3xl font-display font-bold text-brand-dark">Knapper</h3>
-        </section>
-        
+        <BrandLogo client:load />
+        <BrandColors client:load />
+        <BrandFonte client:load />
+        <BrandIkoner client:load />
+        <BrandBackgrounds client:load />
+        <BrandBilledestil client:load />
+        <BrandButtons client:load />
       </div>
     </div>
   </div>
 
   <script>
-    // Client-side scroll spy logic runs directly in the browser
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -70,7 +55,6 @@ import { BrandButtons } from '../components/Brand/BrandButtons';
       });
     }, { rootMargin: '-20% 0px -60% 0px' });
 
-    // Target the Danish IDs
     ['logo', 'farver', 'fonte', 'ikoner', 'baggrund', 'billede-stil', 'knapper'].forEach(id => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
