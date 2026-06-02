@@ -1,8 +1,6 @@
 ---
 import '../styles/global.css';
 import Navbar from '../components/Navbar.tsx';
-import Hero from '../components/Hero.tsx';
-import Benefits from '../components/Benefits.tsx';
 
 interface Props {
   title: string;
@@ -22,8 +20,6 @@ const { title } = Astro.props;
     <Navbar client:only="react" />
 
     <main>
-      <Hero client:only="react" />
-      <Benefits client:only="react" />
       <slot />
     </main>
 

@@ -84,7 +84,7 @@ export default function Navbar({ pathname = '/' }: NavbarProps) {
           <a href="/#fordele" className="hover:text-brand-accent transition-colors">Fordele</a>
           <a href="/#udforsk" className="hover:text-brand-accent transition-colors">Udforsk</a>
           <a href="/#faq" className="hover:text-brand-accent transition-colors">FAQ</a>
-          <a href="/brand" className="hover:text-brand-accent transition-colors">Brand Guide</a>
+          <a href="/brand-guide" className="hover:text-brand-accent transition-colors">Brand Guide</a>
         </div>
 
         <div className="flex items-center gap-4">
