@@ -2,10 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.tsx';
 import Benefits from '../components/Benefits.tsx';
+import Faq from '../components/Faq'
 ---
 
 <Layout title="Home">
-	<h1>FreezerPal</h1>
 	<Hero client:only="react" />
 	<Benefits client:only="react" />
+	<Faq client:only="react" />
 </Layout>

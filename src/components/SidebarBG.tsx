@@ -1,6 +1,6 @@
 import { Download } from 'lucide-react';
 import { cn } from '../lib/utils';
-import { LiquidGL, LiquidButton } from './LiquidGL';
+// If LiquidButton continues to enforce padding, we swap it for a standard semantic button.
 
 export function SidebarBG({ activeSection }) {
   const navItems = [
@@ -14,10 +14,12 @@ export function SidebarBG({ activeSection }) {
   ];
 
   return (
-    <div className="lg:col-span-3">
-      <LiquidGL className="sticky top-32 overflow-hidden flex flex-col rounded-3xl bg-white shadow-lg shadow-brand-dark/5">
+    <div className="lg:col-span-3 flex flex-col">
+      {/* 1. Use standard semantic <aside> to bypass inherited component padding */}
+      <aside className="sticky top-32 flex flex-col rounded-3xl bg-white shadow-lg shadow-brand-dark/5 overflow-hidden">
         
-        <div className="p-8 pb-4">
+        {/* 2. Isolate the padding to the text content area only */}
+        <div className="p-8 pb-10">
           <h3 className="font-display font-bold text-2xl text-brand-dark mb-6">Brand Guide</h3>
           <div className="h-px bg-brand-dark/10 w-full mb-6"></div>
           <nav className="flex flex-col gap-6">
@@ -38,16 +40,15 @@ export function SidebarBG({ activeSection }) {
           </nav>
         </div>
         
-        <div className="mt-8 border-t border-brand-dark/5 bg-brand-accent">
-          <LiquidButton className="w-full text-white font-bold py-6 px-4 flex items-center justify-center gap-4 border-none border-t-0 rounded-none rounded-b-3xl hover:bg-brand-accent-hover transition-colors">
-            <Download className="w-8 h-8" />
-            <div className="text-left leading-tight">
-              <span className="block text-xl">Download alt</span>
-            </div>
-          </LiquidButton>
-        </div>
+        {/* 3. Flush Footer Button: mt-auto pushes it to the bottom, w-full guarantees edge-to-edge */}
+        <button className="w-full mt-auto bg-brand-accent text-white font-bold py-6 px-4 flex items-center justify-center gap-4 hover:bg-brand-accent-hover transition-colors focus:outline-none">
+          <Download className="w-8 h-8" />
+          <div className="text-left leading-tight">
+            <span className="block text-xl">Download alt</span>
+          </div>
+        </button>
 
-      </LiquidGL>
+      </aside>
     </div>
   );
 }

@@ -81,10 +81,9 @@ export default function Navbar({ pathname = '/' }: NavbarProps) {
 
         {/* Desktop Links */}
         <div className={cn("hidden md:flex items-center gap-8 text-sm font-medium", navTextClass)}>
-          <a href="/#fordele" className="hover:text-brand-accent transition-colors">Fordele</a>
-          <a href="/#udforsk" className="hover:text-brand-accent transition-colors">Udforsk</a>
-          <a href="/#faq" className="hover:text-brand-accent transition-colors">FAQ</a>
-          <a href="/brand-guide" className="hover:text-brand-accent transition-colors">Brand Guide</a>
+          <a href="/#fordele" className="hover:text-brand-accent transition-colors font-bold">Fordele</a>
+          <a href="/#udforsk" className="hover:text-brand-accent transition-colors font-bold">Udforsk</a>
+          <a href="/#faq" className="hover:text-brand-accent transition-colors font-bold">FAQ</a>
         </div>
 
         <div className="flex items-center gap-4">
