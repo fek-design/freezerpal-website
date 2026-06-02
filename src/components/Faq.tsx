@@ -96,7 +96,7 @@ export default function Faq() {
                         "py-2 px-2 text-xs font-semibold rounded-full border transition-colors",
                         frequency === freq 
                           ? "bg-brand-dark border-brand-dark text-white" 
-                          : "bg-white border-gray-200 text-text-muted hover:border-brand-accent"
+                          : "color-bg-alt border-gray-200 text-text-muted hover:border-brand-accent"
                       )}
                     >
                       {freq}

@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import { SidebarBG } from '../components/SidebarBG.tsx'; 
 import { HeaderBG } from '../components/HeaderBG.tsx'; 
+import { BrandBackgrounds } from '../components/Brand/BrandBackgrounds';
+import { BrandButtons } from '../components/Brand/BrandButtons';
 
 ---
 
@@ -19,6 +21,8 @@ import { HeaderBG } from '../components/HeaderBG.tsx';
       
       <div class="lg:col-span-9">
         
+        <BrandBackgrounds />
+        <BrandButtons />
         <section id="logo" class="min-h-[50vh] pt-16 border-t border-brand-dark/10 mb-16">
             <h3 class="text-3xl font-display font-bold text-brand-dark">Logo</h3>
         </section>

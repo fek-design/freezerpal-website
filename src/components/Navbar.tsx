@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { User } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { Logo } from './Logo';
-import { LiquidButton } from './LiquidGL';
+import { LiquidButton } from './LiquidGL.tsx';
 
 interface NavbarProps {
   pathname?: string;
