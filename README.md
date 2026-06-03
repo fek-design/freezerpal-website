@@ -104,7 +104,7 @@ Launch the Astro development process:
 ```bash
 npm run dev
 ```
-By default, the environment starts on port **3000**. Open [http://localhost:4321](http://localhost:4321) inside your web browser.
+By default, the environment starts on port **4321**. Open [http://localhost:4321](http://localhost:4321) inside your web browser.
 
 ### 3. Lint and Quality Verification
 To audit your TypeScript configurations and verify styling consistency:
