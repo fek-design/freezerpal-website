@@ -1,12 +1,25 @@
-import { Download, X } from 'lucide-react';
+import { Download } from 'lucide-react';
 import { cn } from '../../lib/utils';
+
+// Main Assets
 import logoSort from '../../assets/logo/Logo_sort.svg';
 import logoHvid from '../../assets/logo/Logo_hvid.svg';
 import bg1 from '../../assets/images/Baggrund 4.2.svg';
 import img1 from '../../assets/images/image 103.jpg';
 
-// Logo component using real assets
-function FreezerPalLogo({ variant = 'light' }: { variant?: 'light' | 'dark' | 'cream' | 'sort' | 'misfarvet' }) {
+// Violation Assets
+import blurLogo from '../../assets/logo/Blur_Logo.svg';
+import dropShadowLogo from '../../assets/logo/Dropshadow_Logo.svg';
+import glassLogo from '../../assets/logo/Glass_Logo.svg';
+import outlineLogo from '../../assets/logo/Outline_Logo.svg';
+import pinkLogo from '../../assets/logo/Pink_Logo.svg';
+import rotereLogo from '../../assets/logo/Rotere_Logo.svg';
+
+interface FreezerPalLogoProps {
+  variant?: 'light' | 'dark' | 'cream' | 'sort' | 'misfarvet';
+}
+
+function FreezerPalLogo({ variant = 'light' }: FreezerPalLogoProps) {
   const isDark = variant === 'dark' || variant === 'sort';
   const isMisfarvet = variant === 'misfarvet';
   
@@ -27,9 +40,9 @@ interface LogoCardProps {
   isInvalid?: boolean;
   invalidReason?: string;
   imageBg?: string; 
+  overrideImgSrc?: string;
 }
 
-// Logo preview card
 function LogoCard({
   label,
   bg,
@@ -37,18 +50,17 @@ function LogoCard({
   isInvalid = false,
   invalidReason,
   imageBg,
+  overrideImgSrc,
 }: LogoCardProps) {
   const isDarkLogo = variant === 'light' || variant === 'sort' || variant === 'misfarvet';
 
   return (
     <div className="flex flex-col h-40 rounded-2xl border border-black/10 overflow-hidden shadow-sm bg-white relative">
       
-      {/* Integrated Card Top Header Strip */}
       <div className="h-10 flex items-center px-4 border-b border-black/5 bg-white relative z-30">
         <span className="text-xs font-medium text-brand-dark">{label}</span>
       </div>
       
-      {/* Visual Content Display Canvas */}
       <div
         className={cn(
           "flex-1 w-full relative flex items-center justify-center bg-cover bg-center",
@@ -56,8 +68,6 @@ function LogoCard({
         )}
         style={imageBg ? { backgroundImage: `url('${imageBg}')` } : undefined}
       >
-        {/* FIX: Dynamic overlay layer. Applies bg-white/25 for dark logos on backgrounds, 
-            and bg-black/15 for light logos on backgrounds to maximize legibility. */}
         {imageBg && (
           <div 
             className={cn(
@@ -67,10 +77,13 @@ function LogoCard({
           />
         )}
 
-        <FreezerPalLogo variant={variant} />
+        {overrideImgSrc ? (
+          <img src={overrideImgSrc} alt={`${label} violation`} className="h-12 w-auto relative z-10" />
+        ) : (
+          <FreezerPalLogo variant={variant} />
+        )}
 
-        {/* Invalid Cross-Out Layer: Renders a clean line from bottom-left to top-right */}
-        {isInvalid && (
+        {isInvalid && !overrideImgSrc && (
           <div className="absolute inset-0 z-20 pointer-events-none">
             <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
               <line x1="0" y1="100" x2="100" y2="0" stroke="#FF0000" strokeWidth="3" vectorEffect="non-scaling-stroke" />
@@ -79,7 +92,7 @@ function LogoCard({
         )}
       </div>
       
-      {invalidReason && (
+      {invalidReason && !overrideImgSrc && (
         <div className="absolute bottom-1 left-3 z-30">
           <span className="text-[10px] font-medium text-red-500 bg-white/90 px-1.5 py-0.5 rounded-md shadow-sm border border-red-100">{invalidReason}</span>
         </div>
@@ -102,20 +115,20 @@ export function BrandLogo() {
         {/* Main Title Banner */}
         <div className="md:col-span-12 flex items-start justify-between">
           <h3 className="text-4xl font-display font-bold text-brand-dark">Logo</h3>
-          <button className="flex items-center gap-2 bg-brand-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-dark/80 transition-colors shadow-sm">
+          <button className="flex items-center gap-2 bg-brand-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-dark/80 transition-colors shadow-sm focus:outline-none">
             <Download className="w-4 h-4" />
             Download Logo
           </button>
         </div>
 
-        {/* Large Brand Showcase Anchor hero box */}
+        {/* Large Brand Showcase Anchor */}
         <div className="md:col-span-12">
           <div className="flex items-center justify-center bg-[#3D5A38] rounded-2xl h-48 shadow-inner">
             <FreezerPalLogo variant="dark" />
           </div>
         </div>
 
-        {/* Minimum Sizing Constraints Specification rules */}
+        {/* Minimum Sizing Constraints */}
         <div className="md:col-span-7">
           <div className="bg-[#f0f4f1] rounded-2xl p-6 h-full border border-brand-dark/5">
             <p className="text-sm font-semibold text-brand-dark mb-1">Minimum størrelse</p>
@@ -143,7 +156,7 @@ export function BrandLogo() {
           </div>
         </div>
 
-        {/* Color Contrast Policy Box */}
+        {/* Color Contrast Policy */}
         <div className="md:col-span-5">
           <div className="bg-[#1a1a1a] rounded-2xl p-6 h-full flex flex-col justify-between shadow-md">
             <div>
@@ -158,7 +171,7 @@ export function BrandLogo() {
           </div>
         </div>
 
-        {/* Row 1: Freezer-Pal Hvid Logo Grid Module */}
+        {/* Row 1: Freezer-Pal Hvid Logo */}
         <div className="md:col-span-12 mt-4">
           <SectionLabel>Freezer-Pal Hvid Logo</SectionLabel>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -183,7 +196,7 @@ export function BrandLogo() {
           </div>
         </div>
 
-        {/* Row 2: Freezer-Pal Sort Logo Grid Module */}
+        {/* Row 2: Freezer-Pal Sort Logo */}
         <div className="md:col-span-12 mt-4">
           <SectionLabel>Freezer-Pal Sort Logo</SectionLabel>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -208,16 +221,16 @@ export function BrandLogo() {
           </div>
         </div>
 
-        {/* Violation Matrix Module Footer */}
-        <div className="md:col-span-12 mt-4">
-          <p className="text-sm font-semibold text-red-500 mb-4">Brug ikke disse varianter</p>
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-            <LogoCard label="Misfarvet" bg="bg-[#527a4d]" variant="misfarvet" isInvalid invalidReason="Forkert farve" />
-            <LogoCard label="Drop shadow" bg="bg-[#FAF9F6]" variant="light" isInvalid invalidReason="Drop shadow" />
-            <LogoCard label="Outline" bg="bg-[#FAF9F6]" variant="light" isInvalid invalidReason="Outline" />
-            <LogoCard label="Blur" bg="bg-[#3D5A38]" variant="dark" isInvalid invalidReason="Blur effekt" />
-            <LogoCard label="Glass Effects" bg="bg-[#a3b8aa]" variant="light" isInvalid invalidReason="Glass effekt" />
-            <LogoCard label="Rotate" bg="bg-[#FAF9F6]" variant="light" isInvalid invalidReason="Roteret" />
+        {/* Violation Matrix Module */}
+        <div className="md:col-span-12 mt-8">
+          <h4 className="text-lg font-bold text-red-600 mb-4 tracking-tight">Brug ikke disse varianter</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <LogoCard label="Misfarve" bg="bg-brand-dark" overrideImgSrc={pinkLogo.src} />
+            <LogoCard label="Drop shadow" bg="bg-brand-dark" overrideImgSrc={dropShadowLogo.src} />
+            <LogoCard label="Outline" bg="bg-brand-dark" overrideImgSrc={outlineLogo.src} />
+            <LogoCard label="Blur" bg="bg-brand-dark" overrideImgSrc={blurLogo.src} />
+            <LogoCard label="Glass Effects" bg="bg-brand-dark" overrideImgSrc={glassLogo.src} />
+            <LogoCard label="Roterer" bg="bg-brand-dark" overrideImgSrc={rotereLogo.src} />
           </div>
         </div>
 
