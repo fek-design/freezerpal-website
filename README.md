@@ -3,6 +3,8 @@
 > **The Digital Presentation Layer for the Conscious Kitchen.**  
 > A high-performance, responsive marketing platform built using Astro 6, React 19, and Tailwind CSS v4. Features fluid scroll kinematics, a live custom savings calculator, and an integrated interactive brand guide.
 
+📦 **Instant Download**: You can download the pre-compiled, production-ready build files directly from the [Releases](../../releases) section of this repository.
+
 ---
 
 ## 🌐 Project Overview
@@ -116,3 +118,5 @@ To output an optimized, completely static compilation of the marketing funnel:
 npm run build
 ```
 The static file server assets will be written directly inside the `/dist` directory, fully primed for high-speed edge distribution (Cloud Run, Netlify, Vercel, S3).
+
+> 💡 **Note**: If you want to bypass local configuration and assembly, you can fetch the pre-compiled production build bundle directly from the repository's **Releases** tab.
