@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.tsx';
 import Benefits from '../components/Benefits.tsx';
+import HowItWorks from '../components/HowItWorks';
 import Faq from '../components/Faq'
 import Cta from '../components/Cta'
 ---
@@ -9,6 +10,7 @@ import Cta from '../components/Cta'
 <Layout title="Home">
 	<Hero client:only="react" />
 	<Benefits client:only="react" />
+	<HowItWorks client:only="react"/>
 	<Faq client:only="react" />
 	<Cta client:only="react" />
 </Layout>

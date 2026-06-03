@@ -162,8 +162,8 @@ export default function Benefits() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-end p-8 md:p-16">
            <div className="text-white">
              <h3 className="text-5xl font-display font-bold leading-tight drop-shadow-lg">
-               30 % <br />
-               Mere tid i din hverdag
+               30 % Mere tid<br />
+              i din hverdag
              </h3>
            </div>
         </div>
