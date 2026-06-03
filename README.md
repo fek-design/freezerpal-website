@@ -1,145 +1,118 @@
-# Freezer Pal 🧊
+# Freezer Pal — Website & Brand Guidelines Platform 🧊
 
-> **The Conscious Kitchen Ecosystem**  
-> Streamline meal planning, synchronize shared family shopping lists, and eliminate food waste straight from your freezer with a modern, high-fidelity digital dashboard.
-
----
-
-## 🍽️ About Freezer Pal
-Freezer Pal is a modern full-stack web application designed for households looking to practice **total madkontrol** (total kitchen control). By mapping out what you already have in your freezer, Freezer Pal helps reduce food waste (**undgå madspild**), intelligently plans weekly meals based on available ingredients, and synchronizes real-time shopping lists across the household.
-
-Designed with premium aesthetic values and fluid interactive states, Freezer Pal provides an experience built around high-density typography, smooth scrolling, and an advanced **Liquid Frosted Glass** visual language.
+> **The Digital Presentation Layer for the Conscious Kitchen.**  
+> A high-performance, responsive marketing platform built using Astro 6, React 19, and Tailwind CSS v4. Features fluid scroll kinematics, a live custom savings calculator, and an integrated interactive brand guide.
 
 ---
 
-## ✨ Core Features
+## 🌐 Project Overview
+This repository contains the frontend codebase for the official **Freezer Pal** website. Rather than the application itself, this codebase is the digital landing interface designed to introduce users to the Freezer Pal ecosystem, drive marketing acquisition, and present the brand's complete layout guidelines.
 
-### 🧊 1. Total Pantry & Freezer Mapping (Overblikket)
-*   Keep a precise, categorizeable record of your freezer drawers.
-*   Prevent food items from being forgotten in the depths of your freezer shelves.
-*   Helps save a typical Danish household up to 1,500 kr. annually by utilizing forgotten ingredients.
-
-### 🗓️ 2. Fælles Madplan (Shared Meal Planner Sync)
-*   Generate weekly rotating dinner plans primarily leveraging items already in stock.
-*   Consolidated system reduces last-minute impulse purchases.
-*   Dramatically shortens prep and cooking times.
-
-### 🛒 3. Live Dele-indkøbsliste (Family-Synced Shopping Lists)
-*   A real-time shared shopping list synced instantly across family devices.
-*   Prevents duplicate purchases (e.g., getting double milk because of split shopping trips).
-*   Intelligent, context-sensitive suggestions based on meal plans and leftover stock.
-
-### 🎨 4. Liquid Frosted Glass UI
-*   High-fidelity liquid glassmorphism design tokens utilizing optimized hardware-accelerated backdrops (`backdrop-filter`) and saturation multipliers.
-*   Engineered above a warm, inviting **Milk Base** tone to replace standard harsh off-whites.
+### Key Digital Experiences Included:
+1.  **Acquisition Landing Page**: An immersive single-page landing site designed with scroll-driven animations showing the mobile application features (shared meal planning, freezer stock tracking, and synced shopping lists).
+2.  **Interactive Savings Calculator**: A React-powered calculator that helps potential users calculate financial and environmental gains (CO2 reduction) based on household metrics directly on the site.
+3.  **Digital Brand Guidelines Platform**: An in-browser design system dashboard (`/brand`) documenting typography pairings, color spaces, button patterns, asset guidelines, and responsive layout foundations.
 
 ---
 
-## 🎨 Visual Identity & Design System
+## 🛠️ Stack & Optimization Architecture
 
-Freezer Pal is defined by an elegant, high-contrast, editorial design guidelines module natively available within the application's internal Brand Guide.
+This website is engineered for speed, SEO, and elegant motion:
 
-### Color Palette
-| Color | Name | Hex | Usage |
-| :--- | :--- | :--- | :--- |
-| ![#3D5A38](https://placeholder-renderer.herokuapp.com/color/3D5A38?width=24&height=24) | **Tactical Olive** | `#3D5A38` | Brand core, dark backdrops, text headings |
-| ![#AFE648](https://placeholder-renderer.herokuapp.com/color/AFE648?width=24&height=24) | **Kinetic Chartreuse** | `#AFE648` | Interactive call-to-actions, highlights |
-| ![#FAF9F6](https://placeholder-renderer.herokuapp.com/color/FAF9F6?width=24&height=24) | **Milk Base** | `#FAF9F6` | Global page backdrop, replacing standard whites |
-| ![#527A4D](https://placeholder-renderer.herokuapp.com/color/527A4D?width=24&height=24) | **Forest Light** | `#527A4D` | Editorial backgrounds, badge structures |
-
-### Typography Guidelines
-*   **Headings/Rubrik**: `Stack Sans Headline` — Bold, premium, high-impact display lettering.
-*   **Body Copy/Brødtekst**: `Inter` — Human, neutral, and meticulously clear across small screens.
+*   **Astro v6**: Leveraged for modern, content-first static setups. It keeps baseline JavaScript loads near zero by server-rendering static content, only loading interactive islands where necessary.
+*   **React v19**: Powers the interactive components, including the savings calculator and the brand guidelines nav-state modules.
+*   **Tailwind CSS v4**: Utility-first styling with key color-space modifications (including the clean, milk-based `#FAF9F6` canvas background).
+*   **Motion**: Orchestrates transitions and smooth spring layouts.
+*   **GSAP & Lenis**: Manages fluid, responsive scroll choreography and smooth-scroll kinetics.
 
 ---
 
-## ⚙️ Built With
+## 🎨 Design Engineering (Liquid Frosted Glass)
 
-*   **Framework**: [Astro (v6)](https://astro.build/) — Fast island architecture combining content delivery with interactive elements.
-*   **Component Model**: [React (v19)](https://react.dev/) — Interactive application modules and state machines.
-*   **Styling Engine**: [Tailwind CSS (v4)](https://tailwindcss.com/) — Responsive, modern design frameworks.
-*   **Animations**: [Motion](https://motion.dev/) — Premium micro-interactions, spring layouts, and stagger effects.
-*   **Scroll Kinetics**: [GSAP](https://gsap.com/) & [Lenis](https://lenis.darkroom.engineering/) — Fluid, consistent scroll-triggered physics.
+The website uses a custom-curated, glassy visual aesthetic called **Liquid Frosted Glass**. Rather than utilizing static, flat off-white card patterns, the interface implements custom-crafted hardware-accelerated glassy utility blocks:
+
+```css
+/* Custom class definitions from src/index.css */
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+```
+
+These classes are dynamically implemented across:
+*   **Navigation elements**: Floating headers that transition seamlessly back and forth from transparent states as the page scrolls.
+*   **Interactive Cards**: Content containers and testimonial blocks that blend smoothly over color variations.
+*   **Brand Guidelines Sidebar**: A sticky, scroll-tracked utility column that matches light and dark frosted standards.
 
 ---
 
-## 📂 Codebase Architecture
-
-The project maintains a highly modular design split between statically optimized page wraps and reusable visual components:
+## 📁 Repository Structure
 
 ```
 ├── src/
 │   ├── components/
-│   │   ├── brand/               # Modular sections of the Brand Guidelines
-│   │   │   ├── BrandLogo.tsx       # Logo placement rules & minimum scale
-│   │   │   ├── BrandColors.tsx     # Hex code values & swatches
-│   │   │   ├── BrandTypography.tsx # Layout specimens
-│   │   │   ├── BrandIcons.tsx      # System icons from lucide-react
-│   │   │   ├── BrandBackgrounds.tsx# Textures and overlay patterns
-│   │   │   ├── BrandImagery.tsx    # Unsplash photography styles
-│   │   │   └── BrandButtons.tsx    # Interactive buttons and Google Play assets
-│   │   ├── Benefits.tsx         # Detailed feature grid & glass elements
-│   │   ├── Cta.tsx              # Dynamic scroll-scale CTA component
-│   │   ├── Faq.tsx              # Collapsible interaction with calculator
-│   │   ├── Hero.tsx             # Interactive header & smartphone asset
-│   │   ├── HowItWorks.tsx       # Scrolling device simulation chapter engine
-│   │   ├── LiquidGL.tsx         # Liquid Frosted Glass layout engine
-│   │   ├── Logo.tsx             # Reusable SVG snowflake mark
-│   │   └── Navbar.tsx           # Floating responsive frosted menu
+│   │   ├── brand/               # Direct design system visual components
+│   │   │   ├── BrandLogo.tsx       # Logo usage, scaling margins, and download hooks
+│   │   │   ├── BrandColors.tsx     # Color definition blocks and Hex palettes
+│   │   │   ├── BrandTypography.tsx # Font style samples and stack specs
+│   │   │   ├── BrandIcons.tsx      # System icons from Lucide
+│   │   │   ├── BrandBackgrounds.tsx# Textures, overlays, and background pairings
+│   │   │   ├── BrandImagery.tsx    # Curation guidelines for photography styles
+│   │   │   └── BrandButtons.tsx    # CTA and app download assets
+│   │   ├── Benefits.tsx         # Responsive feature showcase
+│   │   ├── Cta.tsx              # Interactive scale-triggered exit section
+│   │   ├── Faq.tsx              # Accordion component & Savings Calculator
+│   │   ├── Hero.tsx             # Interactive header & mockup smartphone frame
+│   │   ├── HowItWorks.tsx       # Step-by-step feature progression view
+│   │   ├── LiquidGL.tsx         # The Liquid Frosted glass wrapper component
+│   │   ├── Logo.tsx             # Vector snowflake brand mark
+│   │   └── Navbar.tsx           # Floating scrolled glass header
 │   ├── pages/
-│   │   ├── Landing.tsx          # Assembled landing modules
-│   │   ├── BrandGuide.tsx       # Fully functioning Brand Guide module
-│   │   ├── brand.astro          # Astro entrypoint for public brand guide
-│   │   └── index.astro          # Main SEO-optimized home entrypoint
-│   ├── index.css                # Global CSS variables & liquid class attributes
-│   └── Layout.tsx               # Master app shell
-├── astro.config.mjs             # High-speed Astro packaging server configurations
-└── package.json                 # Dependency list & compilation execution triggers
+│   │   ├── Landing.tsx          # Marketing components composer
+│   │   ├── BrandGuide.tsx       # Live style guide implementation
+│   │   ├── brand.astro          # Brand guide page layout wrapper
+│   │   └── index.astro          # Landing page layout entry point
+│   ├── index.css                # Style foundations, design system variables, and utilities
+│   └── Layout.tsx               # Primary application page wrapper
+├── astro.config.mjs             # Astro compilation and runtime setup
+└── package.json                 # Core dependencies and developer scripts
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Setting Up the Website Locally
 
-To run Freezer Pal locally in your own development environment, perform the following steps:
+Follow these instructions to clone, develop on, and compile this marketing site:
 
 ### Prerequisites
-Ensure you have **Node.js** (v18 or higher) and **npm** installed on your system.
+*   **Node.js** (v18 or higher recommended)
+*   **npm** or your preferred Node package manager
 
-### 1. Clone & Position
-Navigate to your desired directory and extract the project:
-```bash
-cd freezer-pal
-```
-
-### 2. Dependency Installation
-Install the necessary package engines, including React 19, Tailwind CSS v4, Motion, and GSAP:
+### 1. Installation
+Install the project's dependencies:
 ```bash
 npm install
 ```
 
-### 3. Start the Development Server
-Launch the Astro development process locally (automatically configured on port `3000`):
+### 2. Run the Development Server
+Launch the Astro development process:
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your web browser to view the application.
+By default, the environment starts on port **3000**. Open [http://localhost:3000](http://localhost:3000) inside your web browser.
 
-### 4. Direct Production Compilation
-Compile a fully static, edge-optimized production build:
+### 3. Lint and Quality Verification
+To audit your TypeScript configurations and verify styling consistency:
+```bash
+npm run lint
+```
+
+### 4. Build for Production
+To output an optimized, completely static compilation of the marketing funnel:
 ```bash
 npm run build
 ```
-The output assets will be rendered directly in the `/dist` directory, completely optimized for lightning-fast deployments.
-
----
-
-## 🔎 SEO & Search Optimization
-The project integrates pre-render crawl configurations and automated Schema representations to scale Google search discovery:
-*   **JSON-LD Structured Data**: Includes interactive semantic configurations pointing to pricing metadata, features, and operating systems.
-*   **Canonical Localization**: Embedded with Danish meta directives (`lang="da"`, local search optimization mappings) to dominate localized search listings.
-
----
-
-## 📄 License
-This project is proprietary and built exclusively for the **Freezer Pal** design ecosystem.
+The static file server assets will be written directly inside the `/dist` directory, fully primed for high-speed edge distribution (Cloud Run, Netlify, Vercel, S3).
